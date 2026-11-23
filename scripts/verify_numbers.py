@@ -52,9 +52,9 @@ def build_items(dataset: dict) -> list[dict]:
     rejected = _count(events, decision="rejected")
     low_groups = []
     for tool in dataset["tools"]:
-        reviewed = _count(events, tool_id=tool)
-        if reviewed < DEFAULT_THRESHOLD:
-            low_groups.append((tool, reviewed))
+        flagged = _count(events, tool_id=tool, sample_group="low_sample")
+        if flagged:
+            low_groups.append((tool, flagged))
     ranked_tools = len(dataset["tools"]) - len(low_groups)
     return [
         ("运行总数", "管理摘要 / 运行总次数", "runs", "count(runs)", total, r"运行 ([\d,]+) 次"),

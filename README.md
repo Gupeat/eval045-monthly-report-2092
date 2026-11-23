@@ -79,7 +79,7 @@ EVAL-041..044 尚未作为上游模块交付，本仓库用 stubs/ 下的最小�
     run_all.py                五阶段流水线
     stubs/                    EVAL-041..044 最小实现
     scripts/                  验收、溯源、PII 扫描、AC3 截图
-    tests/                    14 个 pytest 回归
+    tests/                    15 个 pytest 回归
     out/                      生成产物（含发布版 PDF/Markdown）
     artifacts/                AC3 截图与验收/扫描证据
 

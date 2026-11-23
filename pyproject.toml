@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "eval045-monthly-report"
-version = "1.0.0"
+version = "1.0.1"
 description = "Synthetic EVAL-045 monthly-report drill with deterministic data and traceable numbers"
 requires-python = ">=3.11"
 dependencies = [

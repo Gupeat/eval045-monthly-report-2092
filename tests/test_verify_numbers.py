@@ -32,3 +32,14 @@ def test_verify_numbers_rejects_tampered_threshold_and_flag():
     tampered["reviews"]["low_sample_threshold"] = 20
     tampered["tools"]["tool-06"]["low_sample"] = True
     assert check(data, tampered, report)["all_ok"] is False
+
+
+def test_verify_numbers_rejects_tampered_sample_group():
+    data, agg, report = _fixture()
+    for event in data["review_events"]:
+        if event["tool_id"] == "tool-07" and event.get("sample_group") == "low_sample":
+            event["sample_group"] = "standard"
+            break
+    result = check(data, agg, report)
+    assert result["all_ok"] is False
+    assert result["items"][11]["value"] == 18
