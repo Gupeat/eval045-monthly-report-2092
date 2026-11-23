@@ -1,0 +1,86 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>会员空间平台质量月报 2026-11 · 发布版 v2</title><style>
+@page { size: A4; margin: 17mm 15mm; }
+body { font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; color: #1f2328; font-size: 10.5pt; line-height: 1.55; }
+h1 { font-size: 21pt; margin: 0 0 4px; }
+h2 { font-size: 14pt; border-bottom: 1px solid #d0d7de; padding-bottom: 4px; margin-top: 20px; page-break-after: avoid; }
+h3 { font-size: 11.5pt; margin-top: 14px; page-break-after: avoid; }
+table { border-collapse: collapse; width: 100%; margin: 8px 0 12px; font-size: 8.8pt; page-break-inside: avoid; }
+th, td { border: 1px solid #c9d1d9; padding: 4px 5px; text-align: left; vertical-align: top; }
+th { background: #f3f4f6; }
+.note { background: #ddf4ff; border-left: 4px solid #0969da; padding: 8px 10px; }
+</style></head><body><h1>会员空间平台质量月报（2026-11）</h1>
+<p>发布版 v2 · 审阅后 · 数据全部虚构</p>
+<p>数据期间：2026-11-01 至 2026-11-30。本报告用于演练月报生成、审阅与发布流程，不代表任何真实会员、员工或客户。</p>
+<h2>管理摘要</h2>
+<ul>
+<li>7 个工具夜间运行 210 次，成功 207 次，成功率 98.5714%。</li>
+<li>共 3 次事件：退化事件（2 次）与 P0 失败（1 次）。</li>
+<li>本月复核事件 3,000 条：accepted 2,300 条，rejected 700 条，拒绝率 23.3333%。</li>
+<li>红队发现 12 条问题，覆盖 open、triaged、in_progress、fixed、verified 五种状态。</li>
+<li>红队状态分布：open 3、triaged 3、in_progress 2、fixed 2、verified 2。</li>
+<li>全体运行平均质量分 0.8481，全体运行 p95 延迟 4130 ms。</li>
+</ul>
+<h2>运行稳定性</h2>
+<h3>退化事件（2 次）</h3>
+<table><thead><tr><th>事件</th><th>工具</th><th>日期</th><th>根因</th><th>影响</th><th>恢复</th></tr></thead><tbody>
+<tr><td>INC-DEG-01</td><td>tool-02</td><td>2026-11-08</td><td>上游模型超时率升高，重试后质量分下降</td><td>tool-02 当日质量分低于基线，未影响其他工具</td><td>当日恢复</td></tr>
+<tr><td>INC-DEG-02</td><td>tool-05</td><td>2026-11-19</td><td>检索索引合并延迟，召回率短时下降</td><td>tool-05 当日质量分低于基线，未影响其他工具</td><td>当日恢复</td></tr>
+</tbody></table>
+<h3>P0 失败（1 次）</h3>
+<table><thead><tr><th>事件</th><th>工具</th><th>日期</th><th>根因</th><th>恢复运行</th><th>恢复运行开始时间</th></tr></thead><tbody>
+<tr><td>INC-P0-01</td><td>tool-03</td><td>2026-11-11</td><td>向量库连接池耗尽，夜间批处理无法建立连接</td><td>run-20261112-tool-03</td><td>2026-11-12T04:00:00Z</td></tr>
+</tbody></table>
+<p>AC3 截图：artifacts/AC3-events.png（由 scripts/make_ac3_shot.py 从种子数据生成；截图包含退化与 P0 记录）。</p>
+<h2>工具质量排名</h2>
+<p>低样本分组 tool-07 仅 19 条，低于 low_sample 阈值 30，标注为 low_sample，不参与默认排名。默认排名覆盖其余 6 个工具。</p>
+<table><thead><tr><th>排名</th><th>工具</th><th>运行次数</th><th>成功率</th><th>平均质量分</th><th>p95 延迟(ms)</th><th>复核条数</th></tr></thead><tbody>
+<tr><td>1</td><td>tool-02</td><td>30</td><td>96.67%</td><td>0.8584</td><td>4185</td><td>497</td></tr>
+<tr><td>2</td><td>tool-05</td><td>30</td><td>96.67%</td><td>0.8537</td><td>4107</td><td>497</td></tr>
+<tr><td>3</td><td>tool-04</td><td>30</td><td>100.00%</td><td>0.8519</td><td>4130</td><td>497</td></tr>
+<tr><td>4</td><td>tool-06</td><td>30</td><td>100.00%</td><td>0.8450</td><td>4171</td><td>496</td></tr>
+<tr><td>5</td><td>tool-03</td><td>30</td><td>96.67%</td><td>0.8347</td><td>4193</td><td>497</td></tr>
+<tr><td>6</td><td>tool-01</td><td>30</td><td>100.00%</td><td>0.8284</td><td>3967</td><td>497</td></tr>
+</tbody></table>
+<h3>low_sample 分组</h3>
+<table><thead><tr><th>工具</th><th>复核条数</th><th>阈值</th><th>处置</th></tr></thead><tbody>
+<tr><td>tool-07</td><td>19</td><td>30</td><td>标注 low_sample，不参与默认排名</td></tr>
+</tbody></table>
+<h2>失败模式归因</h2>
+<table><thead><tr><th>拒绝原因</th><th>条数</th><th>占拒绝总数</th></tr></thead><tbody>
+<tr><td>low_confidence</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>policy_violation</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>duplicate</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>missing_context</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>out_of_scope</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>format_error</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>manual_reject</td><td>100</td><td>14.2857%</td></tr>
+</tbody></table>
+<p>归因要点：7 类拒绝原因各 100 条，合计 700 条；low_sample 分组仅影响排名资格，不改变拒绝率口径。</p>
+<h2>审阅与发布</h2>
+<table><thead><tr><th>意见</th><th>问题</th><th>处理</th><th>状态</th></tr></thead><tbody>
+<tr><td>R1</td><td>管理摘要用约数，审计要求精确值。</td><td>改为 3,000 条，并同时列出 accepted 2,300 / rejected 700。</td><td>resolved</td></tr>
+<tr><td>R2</td><td>tool-07 仅 19 条，低于 low_sample 阈值 30，却被纳入默认质量排名。</td><td>标注 low_sample，并从默认排名排除；单独列出样本量。</td><td>resolved</td></tr>
+<tr><td>R3</td><td>P0 失败与普通退化事件混在同一张表，且缺少数据口径引用。</td><td>拆为退化事件表与 P0 失败表；新增数据口径与限制章节。</td><td>resolved</td></tr>
+</tbody></table>
+<p>本发布版由 EVAL-044 在草稿基础上应用上述 3 条审阅意见后生成。</p>
+<h2>数据口径与限制</h2>
+<table><thead><tr><th>指标</th><th>来源表</th><th>计算口径</th></tr></thead><tbody>
+<tr><td>运行总数 / 成功 / 退化 / 失败</td><td>runs</td><td>按 status 计数；每工具每日 1 条，共 7×30=210 条</td></tr>
+<tr><td>成功率</td><td>runs</td><td>success / total × 100，保留 4 位小数</td></tr>
+<tr><td>退化 / P0 事件数</td><td>incidents</td><td>按 type 计数；P0 为 p0_failure</td></tr>
+<tr><td>复核总数 / accepted / rejected</td><td>review_events</td><td>按 decision 计数；共 3,000 条</td></tr>
+<tr><td>拒绝率</td><td>review_events</td><td>rejected / total × 100，保留 4 位小数</td></tr>
+<tr><td>拒绝原因分布</td><td>review_events</td><td>仅 rejected 记录按 rejection_reason 分组</td></tr>
+<tr><td>low_sample 分组</td><td>review_events</td><td>每组 reviewed &lt; 30 时标注，不参与默认排名</td></tr>
+<tr><td>p95 延迟</td><td>runs</td><td>最近秩法，排序后第 ceil(0.95×n) 个值</td></tr>
+<tr><td>平均质量分</td><td>runs</td><td>quality_score 算术平均，保留 4 位小数</td></tr>
+</tbody></table>
+<p>限制：所有数据由固定种子 20261001 合成；EVAL-041..044 在仓库中以 stubs/ 最小实现替代，真实平台接入时需替换为上游模块。PDF 由本机 Microsoft Edge headless 渲染，未安装 Edge/Chromium 的环境需设置 EDGE_BIN 或改用其他渲染器。</p>
+<h2>附录</h2>
+<ul>
+<li>种子：20261001</li>
+<li>数据集生成时间：2026-12-01T00:00:00Z</li>
+<li>复核事件：3,000 条；low_sample：tool-07 仅 19 条</li>
+<li>复现：python run_all.py</li>
+<li>数字核对：python scripts/verify_numbers.py</li>
+</ul></body></html>

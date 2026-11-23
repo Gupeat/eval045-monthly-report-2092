@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eval045-monthly-report"
+version = "1.0.0"
+description = "Synthetic EVAL-045 monthly-report drill with deterministic data and traceable numbers"
+requires-python = ">=3.11"
+dependencies = [
+  "python-docx>=1.1",
+  "Pillow>=10",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+eval-pii-scan = "scripts.eval_pii_scan:main"
+
+[tool.setuptools]
+py-modules = ["seed_month", "run_all"]
+packages = ["stubs", "scripts"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra"

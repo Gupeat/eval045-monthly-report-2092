@@ -1,0 +1,26 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>AC3 events</title><style>
+@page { size: 1400px 620px; margin: 0; }
+body { font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; color: #1f2328; margin: 0; padding: 26px 40px; width: 1320px; }
+h1 { font-size: 34px; margin: 0 0 6px; }
+h2 { font-size: 23px; margin: 24px 0 8px; border-bottom: 2px solid #d0d7de; padding-bottom: 6px; }
+p { font-size: 16px; margin: 4px 0; }
+table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 15px; }
+th, td { border: 1px solid #b8c0c8; padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: #f0f3f6; }
+.card { display: inline-block; padding: 10px 16px; margin: 6px 10px 6px 0; border-radius: 8px; background: #fff4e5; border-left: 6px solid #d97706; font-size: 17px; }
+.card.p0 { background: #ffebe9; border-left-color: #cf222e; }
+.footer { color: #57606a; font-size: 13px; margin-top: 18px; }
+</style></head><body><h1>AC3 运行稳定性证据</h1>
+<p>虚构数据演练 · 2026-12-01 生成 · 种子 20261001</p>
+<div class="card">退化事件：2 次</div>
+<div class="card p0">P0 失败：1 次</div>
+<h2>退化事件</h2>
+<table><thead><tr><th>事件</th><th>工具</th><th>日期</th><th>根因</th><th>影响</th></tr></thead><tbody>
+<tr><td>INC-DEG-01</td><td>tool-02</td><td>2026-11-08</td><td>上游模型超时率升高，重试后质量分下降</td><td>tool-02 当日质量分低于基线，未影响其他工具</td></tr>
+<tr><td>INC-DEG-02</td><td>tool-05</td><td>2026-11-19</td><td>检索索引合并延迟，召回率短时下降</td><td>tool-05 当日质量分低于基线，未影响其他工具</td></tr>
+</tbody></table>
+<h2>P0 失败</h2>
+<table><thead><tr><th>事件</th><th>工具</th><th>日期</th><th>根因</th><th>恢复运行</th><th>恢复运行开始时间</th></tr></thead><tbody>
+<tr><td>INC-P0-01</td><td>tool-03</td><td>2026-11-11</td><td>向量库连接池耗尽，夜间批处理无法建立连接</td><td>run-20261112-tool-03</td><td>2026-11-12T04:00:00Z</td></tr>
+</tbody></table>
+<div class="footer">本图由 scripts/make_ac3_shot.py 从 out/seed_dataset.json 生成；数据全部虚构。</div></body></html>

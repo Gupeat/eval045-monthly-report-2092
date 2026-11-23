@@ -1,0 +1,122 @@
+{
+  "by_tool": {
+    "tool-01": {
+      "low_sample": false,
+      "reject_rate_pct": 23.34,
+      "rejected": 116,
+      "reviewed": 497
+    },
+    "tool-02": {
+      "low_sample": false,
+      "reject_rate_pct": 23.34,
+      "rejected": 116,
+      "reviewed": 497
+    },
+    "tool-03": {
+      "low_sample": false,
+      "reject_rate_pct": 23.34,
+      "rejected": 116,
+      "reviewed": 497
+    },
+    "tool-04": {
+      "low_sample": false,
+      "reject_rate_pct": 23.5412,
+      "rejected": 117,
+      "reviewed": 497
+    },
+    "tool-05": {
+      "low_sample": false,
+      "reject_rate_pct": 23.1388,
+      "rejected": 115,
+      "reviewed": 497
+    },
+    "tool-06": {
+      "low_sample": false,
+      "reject_rate_pct": 23.3871,
+      "rejected": 116,
+      "reviewed": 496
+    },
+    "tool-07": {
+      "low_sample": true,
+      "reject_rate_pct": 21.0526,
+      "rejected": 4,
+      "reviewed": 19
+    }
+  },
+  "incidents": [
+    {
+      "date": "2026-11-08",
+      "impact": "tool-02 当日质量分低于基线，未影响其他工具",
+      "incident_id": "INC-DEG-01",
+      "recovery_run_id": null,
+      "root_cause": "上游模型超时率升高，重试后质量分下降",
+      "tool_id": "tool-02",
+      "type": "degraded"
+    },
+    {
+      "date": "2026-11-11",
+      "impact": "tool-03 当日运行失败；次日恢复运行成功",
+      "incident_id": "INC-P0-01",
+      "recovery_run_id": "run-20261112-tool-03",
+      "root_cause": "向量库连接池耗尽，夜间批处理无法建立连接",
+      "tool_id": "tool-03",
+      "type": "p0_failure"
+    },
+    {
+      "date": "2026-11-19",
+      "impact": "tool-05 当日质量分低于基线，未影响其他工具",
+      "incident_id": "INC-DEG-02",
+      "recovery_run_id": null,
+      "root_cause": "检索索引合并延迟，召回率短时下降",
+      "tool_id": "tool-05",
+      "type": "degraded"
+    }
+  ],
+  "insights": [
+    "low_sample 分组 tool-07 仅 19 条，低于阈值 30，不能参与默认质量排名。",
+    "7 类拒绝原因各 100 条，拒绝总数 700，拒绝率 23.3333%。",
+    "2 次退化为单工具当日质量下降；INC-P0-01 为 tool-03 向量库连接池耗尽，夜间批处理无法建立连接。"
+  ],
+  "meta": {
+    "month": "2026-11",
+    "schema_version": "eval045.attribution.v1",
+    "seed": 20261001
+  },
+  "rejection_reasons": [
+    {
+      "count": 100,
+      "reason": "low_confidence",
+      "share_pct": 14.2857
+    },
+    {
+      "count": 100,
+      "reason": "policy_violation",
+      "share_pct": 14.2857
+    },
+    {
+      "count": 100,
+      "reason": "duplicate",
+      "share_pct": 14.2857
+    },
+    {
+      "count": 100,
+      "reason": "missing_context",
+      "share_pct": 14.2857
+    },
+    {
+      "count": 100,
+      "reason": "out_of_scope",
+      "share_pct": 14.2857
+    },
+    {
+      "count": 100,
+      "reason": "format_error",
+      "share_pct": 14.2857
+    },
+    {
+      "count": 100,
+      "reason": "manual_reject",
+      "share_pct": 14.2857
+    }
+  ]
+}

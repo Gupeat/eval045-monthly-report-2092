@@ -1,0 +1,158 @@
+{
+  "incidents": {
+    "degraded": 2,
+    "p0_failure": 1,
+    "total": 3
+  },
+  "meta": {
+    "dataset_sha256": "2d0c70204cdeb9d15efc1c76857d7e5caa6eaf4be096ec45bbfce1b9b508d86c",
+    "month": "2026-11",
+    "schema_version": "eval045.aggregate.v1",
+    "seed": 20261001
+  },
+  "redteam": {
+    "by_status": {
+      "fixed": 2,
+      "in_progress": 2,
+      "open": 3,
+      "triaged": 3,
+      "verified": 2
+    },
+    "total": 12
+  },
+  "reviews": {
+    "accepted": 2300,
+    "by_reason": {
+      "duplicate": 100,
+      "format_error": 100,
+      "low_confidence": 100,
+      "manual_reject": 100,
+      "missing_context": 100,
+      "out_of_scope": 100,
+      "policy_violation": 100
+    },
+    "by_tool": {
+      "tool-01": {
+        "reviewed": 497
+      },
+      "tool-02": {
+        "reviewed": 497
+      },
+      "tool-03": {
+        "reviewed": 497
+      },
+      "tool-04": {
+        "reviewed": 497
+      },
+      "tool-05": {
+        "reviewed": 497
+      },
+      "tool-06": {
+        "reviewed": 496
+      },
+      "tool-07": {
+        "reviewed": 19
+      }
+    },
+    "low_sample_groups": [
+      {
+        "is_low_sample": true,
+        "reviewed": 19,
+        "threshold": 30,
+        "tool_id": "tool-07"
+      }
+    ],
+    "low_sample_threshold": 30,
+    "reject_rate_pct": 23.3333,
+    "rejected": 700,
+    "total": 3000
+  },
+  "runs": {
+    "avg_quality_score": 0.8481,
+    "degraded": 2,
+    "failed": 1,
+    "p95_latency_ms": 4130,
+    "success": 207,
+    "success_rate_pct": 98.5714,
+    "total": 210
+  },
+  "tools": {
+    "tool-01": {
+      "avg_quality_score": 0.8284,
+      "degraded": 0,
+      "failed": 0,
+      "low_sample": false,
+      "p95_latency_ms": 3967,
+      "rejected": 116,
+      "reviews": 497,
+      "runs": 30,
+      "success": 30
+    },
+    "tool-02": {
+      "avg_quality_score": 0.8584,
+      "degraded": 1,
+      "failed": 0,
+      "low_sample": false,
+      "p95_latency_ms": 4185,
+      "rejected": 116,
+      "reviews": 497,
+      "runs": 30,
+      "success": 29
+    },
+    "tool-03": {
+      "avg_quality_score": 0.8347,
+      "degraded": 0,
+      "failed": 1,
+      "low_sample": false,
+      "p95_latency_ms": 4193,
+      "rejected": 116,
+      "reviews": 497,
+      "runs": 30,
+      "success": 29
+    },
+    "tool-04": {
+      "avg_quality_score": 0.8519,
+      "degraded": 0,
+      "failed": 0,
+      "low_sample": false,
+      "p95_latency_ms": 4130,
+      "rejected": 117,
+      "reviews": 497,
+      "runs": 30,
+      "success": 30
+    },
+    "tool-05": {
+      "avg_quality_score": 0.8537,
+      "degraded": 1,
+      "failed": 0,
+      "low_sample": false,
+      "p95_latency_ms": 4107,
+      "rejected": 115,
+      "reviews": 497,
+      "runs": 30,
+      "success": 29
+    },
+    "tool-06": {
+      "avg_quality_score": 0.845,
+      "degraded": 0,
+      "failed": 0,
+      "low_sample": false,
+      "p95_latency_ms": 4171,
+      "rejected": 116,
+      "reviews": 496,
+      "runs": 30,
+      "success": 30
+    },
+    "tool-07": {
+      "avg_quality_score": 0.865,
+      "degraded": 0,
+      "failed": 0,
+      "low_sample": true,
+      "p95_latency_ms": 3853,
+      "rejected": 4,
+      "reviews": 19,
+      "runs": 30,
+      "success": 30
+    }
+  }
+}

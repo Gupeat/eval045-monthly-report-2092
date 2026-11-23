@@ -1,0 +1,11 @@
+{
+  "draft_sha256": "00613b18d3f1dcb72520ca78a58225450a009c369ba324714ffb4d749fa5bdd0",
+  "edge_bin": "msedge.exe",
+  "published_html_sha256": "0d1cf803aeb780f64b4cf0ed062ff698b074ebcc8222c34bdb8b7da984b7d095",
+  "published_md_sha256": "88b413e2f91b0a78ae20fb0a23af855d57cf3244873dcff56441efb93902c0c7",
+  "published_pdf_bytes": 249090,
+  "published_pdf_sha256": "ddbad81dd41e83ab5f8ebad993c09d95da64242b5e877e82ed3592673efb04db",
+  "published_version": "v2",
+  "review_comments": 3,
+  "stage": "EVAL-044"
+}

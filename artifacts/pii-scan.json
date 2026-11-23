@@ -1,0 +1,9 @@
+{
+  "tool": "eval-pii-scan",
+  "mode": "mock",
+  "target": "out/seed_dataset.json",
+  "target_sha256": "2d0c70204cdeb9d15efc1c76857d7e5caa6eaf4be096ec45bbfce1b9b508d86c",
+  "scanned_strings": 42846,
+  "errors": 0,
+  "findings": []
+}

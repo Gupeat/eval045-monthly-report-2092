@@ -1,0 +1,349 @@
+{
+  "all_ok": true,
+  "coverage": [
+    {
+      "actual": 3,
+      "expected": 3,
+      "in_report": true,
+      "name": "红队状态 open",
+      "status": "一致"
+    },
+    {
+      "actual": 3,
+      "expected": 3,
+      "in_report": true,
+      "name": "红队状态 triaged",
+      "status": "一致"
+    },
+    {
+      "actual": 2,
+      "expected": 2,
+      "in_report": true,
+      "name": "红队状态 in_progress",
+      "status": "一致"
+    },
+    {
+      "actual": 2,
+      "expected": 2,
+      "in_report": true,
+      "name": "红队状态 fixed",
+      "status": "一致"
+    },
+    {
+      "actual": 2,
+      "expected": 2,
+      "in_report": true,
+      "name": "红队状态 verified",
+      "status": "一致"
+    },
+    {
+      "actual": 100,
+      "expected": 100,
+      "in_report": true,
+      "name": "拒绝原因 low_confidence",
+      "status": "一致"
+    },
+    {
+      "actual": 100,
+      "expected": 100,
+      "in_report": true,
+      "name": "拒绝原因 policy_violation",
+      "status": "一致"
+    },
+    {
+      "actual": 100,
+      "expected": 100,
+      "in_report": true,
+      "name": "拒绝原因 duplicate",
+      "status": "一致"
+    },
+    {
+      "actual": 100,
+      "expected": 100,
+      "in_report": true,
+      "name": "拒绝原因 missing_context",
+      "status": "一致"
+    },
+    {
+      "actual": 100,
+      "expected": 100,
+      "in_report": true,
+      "name": "拒绝原因 out_of_scope",
+      "status": "一致"
+    },
+    {
+      "actual": 100,
+      "expected": 100,
+      "in_report": true,
+      "name": "拒绝原因 format_error",
+      "status": "一致"
+    },
+    {
+      "actual": 100,
+      "expected": 100,
+      "in_report": true,
+      "name": "拒绝原因 manual_reject",
+      "status": "一致"
+    },
+    {
+      "actual": 497,
+      "expected": 497,
+      "in_report": true,
+      "name": "复核数 tool-01",
+      "status": "一致"
+    },
+    {
+      "actual": 497,
+      "expected": 497,
+      "in_report": true,
+      "name": "复核数 tool-02",
+      "status": "一致"
+    },
+    {
+      "actual": 497,
+      "expected": 497,
+      "in_report": true,
+      "name": "复核数 tool-03",
+      "status": "一致"
+    },
+    {
+      "actual": 497,
+      "expected": 497,
+      "in_report": true,
+      "name": "复核数 tool-04",
+      "status": "一致"
+    },
+    {
+      "actual": 497,
+      "expected": 497,
+      "in_report": true,
+      "name": "复核数 tool-05",
+      "status": "一致"
+    },
+    {
+      "actual": 496,
+      "expected": 496,
+      "in_report": true,
+      "name": "复核数 tool-06",
+      "status": "一致"
+    },
+    {
+      "actual": 19,
+      "expected": 19,
+      "in_report": true,
+      "name": "复核数 tool-07",
+      "status": "一致"
+    },
+    {
+      "actual": 30,
+      "expected": 30,
+      "in_report": true,
+      "name": "low_sample 阈值",
+      "status": "一致"
+    },
+    {
+      "actual": "run-20261112-tool-03",
+      "expected": "run-20261112-tool-03",
+      "in_report": true,
+      "name": "P0 恢复运行",
+      "status": "一致"
+    }
+  ],
+  "items": [
+    {
+      "aggregate": 210,
+      "aggregate_match": true,
+      "formula": "count(runs)",
+      "id": 1,
+      "label": "运行总数",
+      "location": "管理摘要 / 运行总次数",
+      "report": "210",
+      "report_match": true,
+      "source": "runs",
+      "status": "一致",
+      "value": 210
+    },
+    {
+      "aggregate": 207,
+      "aggregate_match": true,
+      "formula": "count(status == success)",
+      "id": 2,
+      "label": "成功运行数",
+      "location": "管理摘要 / 成功次数",
+      "report": "207",
+      "report_match": true,
+      "source": "runs.status",
+      "status": "一致",
+      "value": 207
+    },
+    {
+      "aggregate": 2,
+      "aggregate_match": true,
+      "formula": "count(type == degraded)",
+      "id": 3,
+      "label": "退化事件数",
+      "location": "运行稳定性 / 退化事件",
+      "report": "2",
+      "report_match": true,
+      "source": "incidents.type",
+      "status": "一致",
+      "value": 2
+    },
+    {
+      "aggregate": 1,
+      "aggregate_match": true,
+      "formula": "count(type == p0_failure)",
+      "id": 4,
+      "label": "P0 失败数",
+      "location": "运行稳定性 / P0 失败",
+      "report": "1",
+      "report_match": true,
+      "source": "incidents.type",
+      "status": "一致",
+      "value": 1
+    },
+    {
+      "aggregate": 98.5714,
+      "aggregate_match": true,
+      "formula": "success / total × 100",
+      "id": 5,
+      "label": "成功率",
+      "location": "管理摘要 / 成功率",
+      "report": "98.5714",
+      "report_match": true,
+      "source": "runs.status",
+      "status": "一致",
+      "value": 98.5714
+    },
+    {
+      "aggregate": 3,
+      "aggregate_match": true,
+      "formula": "count(incidents)",
+      "id": 6,
+      "label": "事件总数",
+      "location": "管理摘要 / 事件总数",
+      "report": "3",
+      "report_match": true,
+      "source": "incidents",
+      "status": "一致",
+      "value": 3
+    },
+    {
+      "aggregate": 12,
+      "aggregate_match": true,
+      "formula": "count(redteam_findings)",
+      "id": 7,
+      "label": "红队发现数",
+      "location": "管理摘要 / 红队",
+      "report": "12",
+      "report_match": true,
+      "source": "redteam_findings",
+      "status": "一致",
+      "value": 12
+    },
+    {
+      "aggregate": 3000,
+      "aggregate_match": true,
+      "formula": "count(review_events)",
+      "id": 8,
+      "label": "复核事件总数",
+      "location": "管理摘要 / 复核事件",
+      "report": "3,000",
+      "report_match": true,
+      "source": "review_events",
+      "status": "一致",
+      "value": 3000
+    },
+    {
+      "aggregate": 2300,
+      "aggregate_match": true,
+      "formula": "count(decision == accepted)",
+      "id": 9,
+      "label": "accepted 复核数",
+      "location": "管理摘要 / accepted",
+      "report": "2,300",
+      "report_match": true,
+      "source": "review_events.decision",
+      "status": "一致",
+      "value": 2300
+    },
+    {
+      "aggregate": 700,
+      "aggregate_match": true,
+      "formula": "count(decision == rejected)",
+      "id": 10,
+      "label": "rejected 复核数",
+      "location": "管理摘要 / rejected",
+      "report": "700",
+      "report_match": true,
+      "source": "review_events.decision",
+      "status": "一致",
+      "value": 700
+    },
+    {
+      "aggregate": 23.3333,
+      "aggregate_match": true,
+      "formula": "rejected / total × 100",
+      "id": 11,
+      "label": "拒绝率",
+      "location": "管理摘要 / 拒绝率",
+      "report": "23.3333",
+      "report_match": true,
+      "source": "review_events.decision",
+      "status": "一致",
+      "value": 23.3333
+    },
+    {
+      "aggregate": 19,
+      "aggregate_match": true,
+      "formula": "count(sample_group == low_sample)",
+      "id": 12,
+      "label": "low_sample 复核数",
+      "location": "工具质量排名 / low_sample",
+      "report": "19",
+      "report_match": true,
+      "source": "review_events.sample_group",
+      "status": "一致",
+      "value": 19
+    },
+    {
+      "aggregate": 4130,
+      "aggregate_match": true,
+      "formula": "sorted(latency)[ceil(0.95×n)-1]",
+      "id": 13,
+      "label": "全体 p95 延迟",
+      "location": "管理摘要 / p95",
+      "report": "4130",
+      "report_match": true,
+      "source": "runs.latency_ms",
+      "status": "一致",
+      "value": 4130
+    },
+    {
+      "aggregate": 0.8481,
+      "aggregate_match": true,
+      "formula": "mean(quality_score)",
+      "id": 14,
+      "label": "全体平均质量分",
+      "location": "管理摘要 / 平均质量分",
+      "report": "0.8481",
+      "report_match": true,
+      "source": "runs.quality_score",
+      "status": "一致",
+      "value": 0.8481
+    },
+    {
+      "aggregate": 6,
+      "aggregate_match": true,
+      "formula": "count(tools with reviews >= threshold)",
+      "id": 15,
+      "label": "默认排名工具数",
+      "location": "工具质量排名 / 排名范围",
+      "report": "6",
+      "report_match": true,
+      "source": "review_events / tools",
+      "status": "一致",
+      "value": 6
+    }
+  ]
+}

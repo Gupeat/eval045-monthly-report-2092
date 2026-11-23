@@ -1,0 +1,55 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>质量月报草稿 2026-11</title><style>
+body { font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; color: #1f2328; font-size: 11pt; line-height: 1.55; margin: 28px; }
+h1 { font-size: 22pt; margin: 0 0 4px; }
+h2 { font-size: 15pt; border-bottom: 1px solid #d0d7de; padding-bottom: 4px; margin-top: 22px; }
+h3 { font-size: 12pt; margin-top: 16px; }
+table { border-collapse: collapse; width: 100%; margin: 8px 0 12px; font-size: 9pt; }
+th, td { border: 1px solid #c9d1d9; padding: 5px 6px; text-align: left; vertical-align: top; }
+th { background: #f3f4f6; }
+.meta { color: #57606a; font-size: 10pt; }
+.note { background: #fff8c5; border-left: 4px solid #d4a72c; padding: 8px 10px; }
+</style></head><body><h1>会员空间平台质量月报（2026-11）</h1>
+<p>数据期间：2026-11-01 至 2026-11-30。本报告使用虚构数据演练月报流程，不代表任何真实会员或员工。</p>
+<h2>管理摘要</h2>
+<ul>
+<li>7 个工具夜间运行 210 次，成功 207 次，成功率 98.5714%。</li>
+<li>本月复核事件约 3,000 条，拒绝 700 条，拒绝率 23.3333%。</li>
+<li>红队发现 12 条问题，覆盖 5 种状态。</li>
+<li>运行期间发生 2 次退化事件和 1 次 P0 失败。</li>
+</ul>
+<h2>运行稳定性</h2>
+<table><thead><tr><th>事件</th><th>类型</th><th>工具</th><th>日期</th><th>根因</th><th>恢复</th></tr></thead><tbody>
+<tr><td>INC-DEG-01</td><td>退化（P0 为 degraded）</td><td>tool-02</td><td>2026-11-08</td><td>上游模型超时率升高，重试后质量分下降</td><td>当日恢复</td></tr>
+<tr><td>INC-P0-01</td><td>退化（P0 为 p0_failure）</td><td>tool-03</td><td>2026-11-11</td><td>向量库连接池耗尽，夜间批处理无法建立连接</td><td>run-20261112-tool-03</td></tr>
+<tr><td>INC-DEG-02</td><td>退化（P0 为 degraded）</td><td>tool-05</td><td>2026-11-19</td><td>检索索引合并延迟，召回率短时下降</td><td>当日恢复</td></tr>
+</tbody></table>
+<h2>工具质量排名</h2>
+<table><thead><tr><th>排名</th><th>工具</th><th>运行次数</th><th>成功率</th><th>平均质量分</th><th>p95 延迟(ms)</th><th>复核条数</th></tr></thead><tbody>
+<tr><td>1</td><td>tool-07</td><td>30</td><td>100.00%</td><td>0.8650</td><td>3853</td><td>19</td></tr>
+<tr><td>2</td><td>tool-02</td><td>30</td><td>96.67%</td><td>0.8584</td><td>4185</td><td>497</td></tr>
+<tr><td>3</td><td>tool-05</td><td>30</td><td>96.67%</td><td>0.8537</td><td>4107</td><td>497</td></tr>
+<tr><td>4</td><td>tool-04</td><td>30</td><td>100.00%</td><td>0.8519</td><td>4130</td><td>497</td></tr>
+<tr><td>5</td><td>tool-06</td><td>30</td><td>100.00%</td><td>0.8450</td><td>4171</td><td>496</td></tr>
+<tr><td>6</td><td>tool-03</td><td>30</td><td>96.67%</td><td>0.8347</td><td>4193</td><td>497</td></tr>
+<tr><td>7</td><td>tool-01</td><td>30</td><td>100.00%</td><td>0.8284</td><td>3967</td><td>497</td></tr>
+</tbody></table>
+<h2>失败模式归因</h2>
+<table><thead><tr><th>拒绝原因</th><th>条数</th><th>占拒绝总数</th></tr></thead><tbody>
+<tr><td>low_confidence</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>policy_violation</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>duplicate</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>missing_context</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>out_of_scope</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>format_error</td><td>100</td><td>14.2857%</td></tr>
+<tr><td>manual_reject</td><td>100</td><td>14.2857%</td></tr>
+</tbody></table>
+<h2>审阅与发布</h2>
+<p>本稿为待审阅草稿，尚未经过 EVAL-044 审阅。</p>
+<h2>数据口径</h2>
+<p>运行记录来自 runs 表；复核记录来自 review_events 表；事件来自 incidents 表。所有数字由聚合脚本生成。</p>
+<h2>附录</h2>
+<ul>
+<li>种子：20261001</li>
+<li>数据集生成时间：2026-12-01T00:00:00Z</li>
+<li>生成命令：python run_all.py</li>
+</ul></body></html>

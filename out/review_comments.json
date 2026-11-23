@@ -1,0 +1,25 @@
+{
+  "comments": [
+    {
+      "change": "改为 3,000 条，并同时列出 accepted 2,300 / rejected 700。",
+      "comment_id": "R1",
+      "problem": "管理摘要用约数，审计要求精确值。",
+      "status": "resolved"
+    },
+    {
+      "change": "标注 low_sample，并从默认排名排除；单独列出样本量。",
+      "comment_id": "R2",
+      "problem": "tool-07 仅 19 条，低于 low_sample 阈值 30，却被纳入默认质量排名。",
+      "status": "resolved"
+    },
+    {
+      "change": "拆为退化事件表与 P0 失败表；新增数据口径与限制章节。",
+      "comment_id": "R3",
+      "problem": "P0 失败与普通退化事件混在同一张表，且缺少数据口径引用。",
+      "status": "resolved"
+    }
+  ],
+  "draft_sha256": "00613b18d3f1dcb72520ca78a58225450a009c369ba324714ffb4d749fa5bdd0",
+  "published_version": "v2",
+  "stage": "EVAL-044"
+}
